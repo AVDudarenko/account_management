@@ -16,8 +16,11 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
+
+    public AdminController(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
 
     /**
      * Retrieves a list of all accounts.

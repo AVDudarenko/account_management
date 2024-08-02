@@ -20,11 +20,14 @@ import java.security.Principal;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserController(AccountRepository accountRepository, UserRepository userRepository) {
+        this.accountRepository = accountRepository;
+        this.userRepository = userRepository;
+    }
 
     /**
      * Retrieves the account details for the logged-in user.
