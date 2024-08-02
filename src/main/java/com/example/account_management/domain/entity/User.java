@@ -2,6 +2,10 @@ package com.example.account_management.domain.entity;
 
 import jakarta.persistence.*;
 
+/**
+ * Represents a user with login credentials and a role (ADMIN or USER).
+ * Each user is associated with a single account.
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -12,9 +16,9 @@ public class User {
 
     private String username;
     private String password;
-    private String role; // ADMIN or USER
+    private String role;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Account account;
 
     public Long getId() {

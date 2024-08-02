@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a user's bank account with balance and block status.
+ */
 @Entity
 @Table(name = "accounts")
 public class Account {
